@@ -12,6 +12,9 @@ def anomalies():
     for tx in transactions:
         tx["flag"] = "Anomaly" if tx["amount"] > 8000 else "Normal"
     return jsonify(transactions)
+@app.route("/")
+def index():
+    return "Financial Anomaly Detection API is running!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)
